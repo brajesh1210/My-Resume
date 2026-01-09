@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Brajesh Upadhyay - Portfolio CV</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* Import Inter Font */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+        /* RESET & VARIABLES */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* MODERN PROFESSIONAL LIGHT THEME */
+            --bg-body: #f0f4f8;
+            --bg-container: #ffffff;
+            --bg-secondary: #f8fafc; /* Light Slate */
+            --bg-tertiary: #f1f5f9;
+            
+            --accent-primary: #2563eb; /* Royal Blue */
+            --accent-secondary: #4f46e5; /* Indigo */
+            
+            --text-primary: #1e293b; /* Slate 800 */
+            --text-secondary: #475569; /* Slate 600 */
+            --text-muted: #64748b; /* Slate 500 */
+            
+            --border-color: #e2e8f0; /* Slate 200 */
+            --shadow-color: rgba(0, 0, 0, 0.1);
+        }
+
+        html, body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background: var(--bg-body);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* PRINT STYLES */
+        @media print {
+            html, body {
+                background: white !important;
+                color: #000 !important;
+                padding: 0 !important;
+            }
+            .container {
+                box-shadow: none !important;
+                border: none !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+            .footer-fixed {
+                display: none !important;
+            }
+            /* Ensure background colors print for headers/tags */
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        body {
+            padding: 40px 16px 80px 16px; /* Extra bottom padding for fixed footer */
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1000px;
+            background: var(--bg-container);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            box-shadow: 0 10px 40px var(--shadow-color);
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* HEADER */
+        header {
+            background: linear-gradient(135deg, #eff6ff 0%, #eef2ff 100%);
+            border-bottom: 1px solid var(--border-color);
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Decorative circle */
+        header::before {
+            content: '';
+            position: absolute;
+            top: -60%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(37, 99, 235, 0.05), transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .header-content {
+            display: grid;
+            grid-template-columns: 140px 1fr;
+            gap: 32px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .profile-pic {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%; /* Circular profile pic for modern look */
+            object-fit: cover;
+            border: 4px solid white;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            background: #e2e8f0;
+        }
+
+        .header-info h1 {
+            font-size: 2.4rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+        }
+
+        .header-info .tagline {
+            font-size: 1.1rem;
+            color: var(--accent-primary);
+            margin-bottom: 16px;
+            font-weight: 600;
+        }
+
+        .contact-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 12px;
+        }
+
+        .contact-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        }
+
+        .contact-badge:hover {
+            border-color: var(--accent-primary);
+            color: var(--accent-primary);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .contact-badge i {
+            color: var(--accent-primary);
+        }
+
+        /* MAIN CONTENT */
+        main {
+            padding: 40px;
+            display: grid;
+            grid-template-columns: 2.2fr 1.3fr;
+            gap: 48px;
+        }
+
+        @media (max-width: 900px) {
+            main {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+
+        @media print {
+            main {
+                padding: 32px;
+                grid-template-columns: 2.2fr 1.3fr;
+            }
+        }
+
+        section {
+            margin-bottom: 40px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .section-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--accent-primary);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            color: white;
+        }
+
+        .section-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-primary);
+        }
+
+        /* ITEMS */
+        .item {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 24px;
+            border-left: 2px solid var(--border-color);
+        }
+
+        .item:hover {
+            border-left-color: var(--accent-primary);
+        }
+        
+        /* Specific tweak for print to avoid borders looking weird */
+        @media print {
+            .item {
+                border-left: none;
+                padding-left: 0;
+                margin-bottom: 16px;
+            }
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 12px;
+            margin-bottom: 4px;
+        }
+
+        .item-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .item-date {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .item-subtitle {
+            font-size: 0.95rem;
+            color: var(--accent-primary);
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .item-description {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 8px;
+        }
+
+        .item-bullets {
+            margin: 8px 0 8px 18px;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .item-bullets li {
+            margin-bottom: 4px;
+        }
+
+        /* TAGS */
+        .tag-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 12px;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            background: #eff6ff;
+            color: var(--accent-primary);
+            border: 1px solid #dbeafe;
+        }
+
+        .tag a {
+            color: inherit;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .tag a:hover {
+            text-decoration: underline;
+        }
+
+        /* SIDEBAR STYLES */
+        .sidebar section {
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            padding: 24px;
+            border: 1px solid var(--border-color);
+        }
+
+        @media print {
+            .sidebar section {
+                background: transparent;
+                border: none;
+                padding: 0;
+            }
+        }
+
+        .sidebar .item {
+            border-left: none;
+            padding-left: 0;
+            margin-bottom: 16px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .sidebar .item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .sidebar .item-title {
+            font-size: 0.95rem;
+            margin-bottom: 2px;
+        }
+
+        .sidebar .item-subtitle {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 0;
+            font-weight: 400;
+        }
+
+        /* SKILL CHIPS */
+        .skill-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 8px;
+        }
+
+        .skill-chip {
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            background: white;
+            color: var(--text-secondary);
+            border: 1px solid var(--border-color);
+            box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+        }
+
+        /* NEW STYLE FOR INLINE CERTIFICATE LINKS */
+        .cert-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            margin-left: 8px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--accent-primary);
+            text-decoration: none;
+            border: 1px solid rgba(37, 99, 235, 0.3);
+            padding: 2px 8px;
+            border-radius: 12px;
+            background: rgba(37, 99, 235, 0.05);
+            transition: all 0.2s ease;
+            vertical-align: middle;
+            white-space: nowrap;
+        }
+
+        .cert-link:hover {
+            background: var(--accent-primary);
+            color: white;
+            border-color: var(--accent-primary);
+            transform: translateY(-1px);
+        }
+        
+        @media (max-width: 600px) {
+            .cert-link {
+                margin-top: 4px;
+                margin-left: 0;
+                display: inline-flex; /* Ensure it stays visible */
+            }
+        }
+
+        /* FIXED FOOTER */
+        .footer-fixed {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: white;
+            padding: 16px;
+            text-align: center;
+            box-shadow: 0 -4px 12px rgba(0,0,0,0.1);
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        @media (max-width: 600px) {
+            .header-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                justify-items: center;
+            }
+            main {
+                padding: 24px;
+            }
+            .header-info h1 {
+                font-size: 1.8rem;
+            }
+            .contact-links {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <div class="header-content">
+            <img src="brajesh.jpeg" onerror="this.src='https://ui-avatars.com/api/?name=Brajesh+Upadhyay&background=2563eb&color=fff'" alt="Brajesh Upadhyay" class="profile-pic">
+            
+            <div class="header-info">
+                <h1>Brajesh Upadhyay</h1>
+                <div class="tagline">B.Tech @ USICT | IT Undergraduate | Exploring Programming, Web Development, and New Technologies | Lifelong learner</div>
+                
+                <div class="contact-links">
+                    <a href="https://www.linkedin.com/in/brajesh-upadhyay-1b997237a" target="_blank" class="contact-badge">
+                        <i class="fab fa-linkedin"></i> LinkedIn
+                    </a>
+                    <a href="mailto:brajeshupadhyay1210@gmail.com" class="contact-badge">
+                        <i class="fas fa-envelope"></i> Email
+                    </a>
+                    <span class="contact-badge">
+                        <i class="fas fa-phone"></i> +91-9355635976
+                    </span>
+                    <span class="contact-badge">
+                        <i class="fas fa-map-marker-alt"></i> New Delhi, India
+                    </span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="left-column">
+            
+            <section>
+                <div class="section-header">
+                    <div class="section-icon"><i class="fas fa-user"></i></div>
+                    <div class="section-title">Profile</div>
+                </div>
+                <p style="font-size: 1rem; color: var(--text-secondary); line-height: 1.7;">
+                    First-year B.Tech IT student at USICT with expertise in programming fundamentals, data structures, and web development. Passionate about building scalable solutions and collaborating with tech professionals to drive innovation.
+                </p>
+            </section>
+
+            <section>
+                <div class="section-header">
+                    <div class="section-icon"><i class="fas fa-briefcase"></i></div>
+                    <div class="section-title">Experience</div>
+                </div>
+
+                <div class="item">
+                    <div class="item-header">
+                        <div>
+                            <div class="item-title">Core Member</div>
+                            <div class="item-subtitle">Graphics Team, IETE Student Forum</div>
+                        </div>
+                        <div class="item-date">Nov 2025 – Present</div>
+                    </div>
+                    <ul class="item-bullets">
+                        <li>Created visually compelling Instagram collages and promotional graphics using Canva for IETE club events, member introductions, and team spotlights</li>
+                        <li>Designed cohesive branding for member profiles featuring leads, executives, and team members using Canva, maintaining consistent organizational visual identity</li>
+                        <li>Collaborated with club leadership to develop platform-optimized social media content that enhanced IETE's digital engagement and community presence</li>
+                    </ul>
+                </div>
+
+            </section>
+
+            <section>
+                <div class="section-header">
+                    <div class="section-icon"><i class="fas fa-code"></i></div>
+                    <div class="section-title">Projects & Activities</div>
+                </div>
+                <div class="item">
+                    <div class="item-header">
+                        <div class="item-title">RecoverAI: Agentic Debt Recovery System</div>
+                        <div class="item-date">2026</div>
+                    </div>
+                    <div class="item-description">
+                        Full-stack AI platform automating debt recovery via an "Ingest → Smarten → Execute → Govern" pipeline.
+                    </div>
+                    <ul class="item-bullets">
+                        <li><strong>Tech Stack:</strong> FastAPI, React, PostgreSQL, Google Cloud Run, Vertex AI.</li>
+                        <li><strong>Features:</strong> RISKON Engine (Probabilistic Scoring), Sentinel Guard (Compliance), and Agentic allocation.</li>
+                        <li><strong>Role:</strong> Project Analyser. Built the powerpoint presentation for the Hackathon.</li>
+                        <li>
+                            <span style="font-size: 0.85rem; color: var(--text-muted);">
+                                <em>Hackathon collaboration with <a href="https://www.linkedin.com/in/manish-kumar-pankaj-82a9a0338 " target="_blank" class="text-blue-600 hover:underline">Manish Kumar Pankaj</a> & <a href="https://www.linkedin.com/in/kumar-chinmay-49595337b/" target="_blank" class="text-blue-600 hover:underline">Kumar Chinmay</a>.</em>
+                            </span>
+                        </li>
+                    </ul>
+                    <div class="tag-row">
+                        <span class="tag"><a href="https://mk-pankaj.github.io/model/" target="_blank">View Project <i class="fas fa-external-link-alt"></i></a></span>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="item-header">
+                        <div class="item-title">Synapse: Neuro-adaptive Learning Platform</div>
+                        <div class="item-date">2026</div>
+                    </div>
+                    <div class="item-description">
+                        AI-powered platform transforming educational content for neurodiverse learners (ADHD, Dyslexia).
+                    </div>
+                    <ul class="item-bullets">
+                        <li><strong>Tech Stack:</strong> Flutter (Web/Mobile), FastAPI, Gemini 1.5 Flash, Firestore.</li>
+                        <li><strong>Features:</strong> Auto-generated podcasts (Hinglish), Visual Knowledge Graphs, and "Focus Points" summarization.</li>
+                        <li>
+                            <span style="font-size: 0.85rem; color: var(--text-muted);">
+                                <em>Hackathon collaboration with <a href="https://www.linkedin.com/in/manish-kumar-pankaj-82a9a0338 " target="_blank" class="text-blue-600 hover:underline">Manish Kumar Pankaj</a> & <a href="https://www.linkedin.com/in/kumar-chinmay-49595337b/" target="_blank" class="text-blue-600 hover:underline">Kumar Chinmay</a>.</em>
+                            </span>
+                        </li>
+                    </ul>
+                    <div class="tag-row">
+                        <span class="tag"><a href="https://mk-pankaj.github.io/synapse-mvp/" target="_blank">View Project <i class="fas fa-external-link-alt"></i></a></span>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="item-header">
+                        <div class="item-title">IETE Instagram Posts</div>
+                        <div class="item-date">2025</div>
+                    </div>
+                    <div class="item-description">
+                        Design Posts for introducing their club leads, Office Bearers
+                    </div>
+                    <div class="tag-row">
+                        <span class="tag"><a href="https://www.instagram.com/iete_ggsipu?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">View Project <i class="fas fa-external-link-alt"></i></a></span>
+                    </div>
+                </div>
+            </section>
+            
+            <section>
+                <div class="section-header">
+                    <div class="section-icon"><i class="fas fa-certificate"></i></div>
+                    <div class="section-title">Certifications</div>
+                </div>
+
+                <div class="item">
+                    <div class="item-header">
+                        <div>
+                            <div class="item-title">Software Engineering Job Simulation</div>
+                            <div class="item-subtitle">JPMorganChase (via Forage)</div>
+                        </div>
+                        <div class="item-date">Jan 2026</div>
+                    </div>
+                    <div class="item-description">
+                        Credential ID: LkKeoqZqH8r84tJKR
+                    </div>
+                    <div class="tag-row">
+                        <span class="tag"><a href="JP morgan software engineering job simulation certificate_page-0001.jpg">Show Credential <i class="fas fa-external-link-alt"></i></a></span>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <div class="section-header">
+                    <div class="section-icon"><i class="fas fa-graduation-cap"></i></div>
+                    <div class="section-title">Education</div>
+                </div>
+
+                <div class="item">
+                    <div class="item-header">
+                        <div>
+                            <div class="item-title">USICT, GGSIPU</div>
+                            <div class="item-subtitle">B.Tech Information Technology</div>
+                        </div>
+                        <div class="item-date">2025 – 2029</div>
+                    </div>
+                    <div class="item-description">New Delhi, India</div>
+                </div>
+
+                <div class="item">
+                    <div class="item-header">
+                        <div>
+                            <div class="item-title">Kerala Edu. Soc. Sr. Sec. School Canning  Road S.M.S Marg</div>
+                            <div class="item-subtitle">Schooling + Senior Secondary (PCM)</div>
+                        </div>
+                        <div class="item-date">2016 – 2024</div>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="item-header">
+                        <div>
+                            <div class="item-title">Andhra Edu. Soc. Sr. Sec. School</div>
+                            <div class="item-subtitle">Schooling</div>
+                        </div>
+                        <div class="item-date">2012 – 2015</div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <aside class="sidebar">
+            <section>
+                <div class="section-header">
+                    <div class="section-icon"><i class="fas fa-tools"></i></div>
+                    <div class="section-title">Skills</div>
+                </div>
+
+                <div class="item">
+                    <div class="item-title">Programming</div>
+                    <div class="item-subtitle">Basic Python and C; learning DSA in C++.</div
+                </div>
+                <div class="item">
+                    <div class="item-title">Web Basics</div>
+                    <div class="item-subtitle">HTML and CSS for static pages; learning Javascript and React.</div>
+                </div>
+                <div class="item">
+                    <div class="item-title">Tools</div>
+                    <div class="item-subtitle">VS Code, Canva, Google Docs/Sheets, basic GitHub usage for version control.</div>
+                </div>
+                <div class="item">
+                    <div class="item-title">Data Handling</div>
+                    <div class="item-subtitle">Basic data organisation, cleaning, and querying concepts.</div>
+                </div>
+            </section>
+
+            <section>
+                <div class="section-header">
+                    <div class="section-icon"><i class="fas fa-language"></i></div>
+                    <div class="section-title">Languages</div>
+                </div>
+
+                <div class="item">
+                    <div class="item-title">English</div>
+                    <div class="item-subtitle">Fluent</div>
+                </div>
+                <div class="item">
+                    <div class="item-title">Hindi</div>
+                    <div class="item-subtitle">Native</div>
+                </div>
+            </section>
+
+            <section>
+                <div class="section-header">
+                    <div class="section-icon"><i class="fas fa-heart"></i></div>
+                    <div class="section-title">Interests & Qualities</div>
+                </div>
+                <div class="skill-chips">
+                    <span class="skill-chip">Coding</span>
+                    <span class="skill-chip">Drawing</span>
+                    <span class="skill-chip">Running</span>
+                    <span class="skill-chip">Music</span>
+                    <span class="skill-chip">Teamwork</span>
+                    <span class="skill-chip">Discipline</span>
+                    <span class="skill-chip">Problem-solving</span>
+                    <span class="skill-chip">Leadership</span>
+                    <span class="skill-chip">Adaptability</span>
+                </div>
+            </section>
+
+            <section>
+                <div class="section-header">
+                    <div class="section-icon"><i class="fas fa-users"></i></div>
+                    <div class="section-title">Involvement</div>
+                </div>
+                <div class="item">
+                    <div class="item-title">Event & Cultural Activities</div>
+                    <div class="item-subtitle">
+                        Helped coordinate cultural and academic events with logistics and registration.
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="item-title">Farewell & School Functions</div>
+                    <div class="item-subtitle">
+                        Contributed to farewell programs and school functions, strengthening community.
+                    </div>
+                </div>
+            </section>
+        </aside>
+    </main>
+
+    <div class="footer-fixed">
+        <span style="color: #64748b; font-size: 0.9rem;">© 2026 Brajesh Upadhyay. All rights reserved. · Portfolio CV</span>
+    </div>
+</div>
+
+</body>
+</html>
